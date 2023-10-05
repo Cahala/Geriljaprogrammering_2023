@@ -9,6 +9,8 @@
         <main>
             <h1>Monkey Island commando escape</h1>
             <img id="game-screen" src="img/1.png" alt="Guybrush i knipe">
+            <h2 id="winMessage">GRATULERER! Du har klart å befri deg fra synkesanden</h2>
+            <p id="straaMessage">Strå er lagt i skattekisten</p>
             <form>
                 <input id="command-field" type="text" placeholder="Gjør dette...">
                 <button id="command-button">Gi kommando</button>
@@ -22,8 +24,8 @@
                     {step: 1, command: "Åpne skattekiste", image: "img/2.png", solved: false},
                     {step: 2, command: "Fest ballong til stein", image:"img/3.png", solved: false},
                     {step: 3, command: "Blås på ballong", image: "img/4.png", solved: false},
-                    {step: 4, command: "Plukk opp torne", image: "img/5.png", solved: false},
-                    {step: 5, command: "Plukk opp strå", image: "img/6.png", solved: false},
+                    {step: 4, command: "Plukk opp strå", image: "img/4.png", solved: false},
+                    {step: 5, command: "Plukk opp torne", image: "img/5.png", solved: false},
                     {step: 6, command: "Lade blåserør", image: "img/6.png", solved: false},
                     {step: 7, command: "Skyt på ballong", image: "img/7.png", solved: false},
                     {step: 8, command: "Ta tak i tau", image: "img/8.png", solved: false}
@@ -68,6 +70,14 @@
                         document.getElementById("game-screen").src = c.image
 //Sette solved til true for denne kommandoen
                         c.solved = true
+                        if(c.step === 4) {
+                            document.getElementById("straaMessage").style.display = "block"
+                        }else{
+                            document.getElementById("straaMessage").style.display = "none"
+                        }
+                        if(index === commands.length -1) {
+                            document.getElementById("winMessage").style.display = "block" 
+                        }
                     }
                     console.log(commands)
                  }
