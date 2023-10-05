@@ -55,8 +55,12 @@
                         }
                     }
                     if(cantContinue === true){
-
+//Bytte bilde
+                        document.getElementById("game-screen").src = c.image
+//Sette solved til true for denne kommandoen
+                        c.solved = true
                     }
+                    console.log(commands)
                  }
               })
             }
