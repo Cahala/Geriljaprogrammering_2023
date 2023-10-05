@@ -19,8 +19,14 @@
 //Kommando
                 //const commandChest = "Åpne skattekiste"
                 const commands = [
-                    {step: 1, command: "Åpne skattekiste", img: "img/2.png", solved: false},
-                    {step: 2, command: "Fest ballong til stein", img:"img/3.png", solved: false},
+                    {step: 1, command: "Åpne skattekiste", image: "img/2.png", solved: false},
+                    {step: 2, command: "Fest ballong til stein", image:"img/3.png", solved: false},
+                    {step: 3, command: "Blås på ballong", image: "img/4.png", solved: false},
+                    {step: 4, command: "Plukk opp torne", image: "img/5.png", solved: false},
+                    {step: 5, command: "Plukk opp strå", image: "img/6.png", solved: false},
+                    {step: 6, command: "Lade blåserør", image: "img/6.png", solved: false},
+                    {step: 7, command: "Skyt på ballong", image: "img/7.png", solved: false},
+                    {step: 8, command: "Ta tak i tau", image: "img/8.png", solved: false}
 
                 ]
 
@@ -41,20 +47,23 @@
                 }*/
 
                 commands.map((c, index) => {
-                if(userCommand === c.command) {
+                   
+                if(userCommand.toLowerCase() === c.command.toLowerCase()) {
+                    console.log(userCommand.toLowerCase())
+                    console.log(c.command.toLowerCase())
                     console.log("Denne kommandoen finnes på index " + index)
 //Vi lager en status variabel for å sjekke om vi får lov til å akseptere denne kommandoen
                     let cantContinue = true
 
 //For-løkke som skal gå gjennom alle tidligere kommandoer (indexer) enn den som er funnet
                   
-                    for(let checkIndex = 0; checkIndex < index; checkIndex++){
-                        if(commands[checkIndex].solved === false){
+                    for(let checkIndex = 0; checkIndex < index; checkIndex++) {
+                        if(commands[checkIndex].solved === false) {
 //Hvis en av de tidligere kommandoene er false, setter vi canContinue også til false slik at man ikke får lov til å fortsette. 
                             cantContinue = false
                         }
                     }
-                    if(cantContinue === true){
+                    if(cantContinue === true) {
 //Bytte bilde
                         document.getElementById("game-screen").src = c.image
 //Sette solved til true for denne kommandoen
@@ -64,8 +73,6 @@
                  }
               })
             }
-
-            
 
 //EventListener for å sjekke knapp eller Enter-trykk
             document.getElementById("command-button").addEventListener("click", function(event){
