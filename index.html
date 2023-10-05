@@ -17,23 +17,32 @@
         <script>
 //KONFIGRURAJSON
 //Kommando
-                const commandChest = "Åpne skattekiste"
+                //const commandChest = "Åpne skattekiste"
+                const commands = [
+                    {step: 1, command: "Åpne skattekiste", img: "img/2.png", solved: false},
+                    {step: 2, command: "Fest ballong til stein, img/3.png", solved: false},
+
+                ]
 
 //Funksjon for å ta imot verdi fra input-felt
             function checkCommand(){
-                const command = document.getElementById("command-field").value
+                const userCommand = document.getElementById("command-field").value
                 console.log(command)
 //Linjen under gjør at skriverfeltet blir blakt etter hver søkt. 
                 document.getElementById("command-field").value = ""
                                 
 //Test bruker input mot kommando(er)
-                if(command === commandChest){
+                /*if(command === commands [0].command){
                     console.log("Kommandoen er riktig")
                     document.getElementById("game-screen").scr ="img/2.png"
                 } else {
                     console.log("Kommandoen er feil")
                 }
-            }
+            }*/
+
+            commands.map((c) => {
+                if(userCommand)
+            })
 
 //EventListener for å sjekke knapp eller Enter-trykk
             document.getElementById("command-button").addEventListener("click", function(event){
