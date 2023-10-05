@@ -11,8 +11,34 @@
             <img id="game-screen" src="img/1.png" alt="Guybrush i knipe">
             <form>
                 <input id="command-field" type="text" placeholder="Gjør dette...">
-                <button>Gi kommando</button>
+                <button id="command-button">Gi kommando</button>
             </form>
         </main>
+        <script>
+//KONFIGRURAJSON
+//Kommando
+                const commandChest = "Åpne skattekiste"
+
+//Funksjon for å ta imot verdi fra input-felt
+            function checkCommand(){
+                const command = document.getElementById("command-field").value
+                console.log(command)
+//Linjen under gjør at skriverfeltet blir blakt etter hver søkt. 
+                document.getElementById("command-field").value = ""
+                                
+//Test bruker input mot kommando(er)
+                if(command === commandChest){
+                    console.log("Kommandoen er riktig")
+                } else {
+                    console.log("Kommandoen er feil")
+                }
+            }
+
+//EventListener for å sjekke knapp eller Enter-trykk
+            document.getElementById("command-button").addEventListener("click", function(event){
+                event.preventDefault()
+                checkCommand()
+            })
+        </script>
     </body>
 </html>
