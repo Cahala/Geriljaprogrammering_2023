@@ -20,29 +20,48 @@
                 //const commandChest = "Åpne skattekiste"
                 const commands = [
                     {step: 1, command: "Åpne skattekiste", img: "img/2.png", solved: false},
-                    {step: 2, command: "Fest ballong til stein, img/3.png", solved: false},
+                    {step: 2, command: "Fest ballong til stein", img:"img/3.png", solved: false},
 
                 ]
 
 //Funksjon for å ta imot verdi fra input-felt
             function checkCommand(){
                 const userCommand = document.getElementById("command-field").value
-                console.log(command)
+                console.log(userCommand)
+
 //Linjen under gjør at skriverfeltet blir blakt etter hver søkt. 
                 document.getElementById("command-field").value = ""
-                                
+
 //Test bruker input mot kommando(er)
                 /*if(command === commands [0].command){
                     console.log("Kommandoen er riktig")
                     document.getElementById("game-screen").scr ="img/2.png"
                 } else {
                     console.log("Kommandoen er feil")
-                }
-            }*/
+                }*/
 
-            commands.map((c) => {
-                if(userCommand)
-            })
+                commands.map((c, index) => {
+                if(userCommand === c.command) {
+                    console.log("Denne kommandoen finnes på index " + index)
+//Vi lager en status variabel for å sjekke om vi får lov til å akseptere denne kommandoen
+                    let cantContinue = true
+
+//For-løkke som skal gå gjennom alle tidligere kommandoer (indexer) enn den som er funnet
+                  
+                    for(let checkIndex = 0; checkIndex < index; checkIndex++){
+                        if(commands[checkIndex].solved === false){
+//Hvis en av de tidligere kommandoene er false, setter vi canContinue også til false slik at man ikke får lov til å fortsette. 
+                            cantContinue = false
+                        }
+                    }
+                    if(cantContinue === true){
+
+                    }
+                 }
+              })
+            }
+
+            
 
 //EventListener for å sjekke knapp eller Enter-trykk
             document.getElementById("command-button").addEventListener("click", function(event){
